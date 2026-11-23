@@ -1,0 +1,41 @@
+Lab 9 Sales Analysis Pseudocoding
+
+SalesAnalysisDemo (Main) class //NOTE-main() will need to throws IOException
+1) Ask the user for the file name/path
+2) Use a while (or do while) pit to test if file exists
+3) Create a SalesAnalysis object via passing in the file name/path
+4) Call processFile()
+5) Call writeOutput()
+
+SalesAnalysis
+1) Create a public static int constant for WEEKS_IN_MONTH set to 4
+2) Set up field vars - double array called weeklyNumber, String inputFile, int lineNumber set to 0 
+3) Create a constructor that sets inputFile and assigns weeklyNumber to a WEEKS_IN_MONTH sized array
+
++processFile()-void  //You will need to throws IOException
+NOTE-OK to create local vars inside the method
+1) Create a file object and create a Scanner object with the file object
+2) While Scanner object hasNextLine()
+	a) Get the line
+	b) Split the line to create a String array
+	c) Call setArrayElement passing in the array as an argument 
+3) After going through all weeks, make sure to close your Scanner object
+
+
+-setArrayElement(String[] inArray) - void
+NOTE-OK to create local vars inside the method (ie double total)
+1) Use a for each or for loop to parse inArray elements and total
+	a) HINT - Double.parseDouble will be helpful
+2) Add total to weeklyNumber.  HINT - use field var lineNumber and then increment lineNumber
+
++writeOutput() - void
+NOTE-OK to create local vars inside the method.  See lab write up for suggestions.  Since doing a min and max, set min and max to first element in weeklyNumber.  
+1) Use a for loop to:
+	a) Get elements from weeklyNumber and add to totalSales accumulator.  
+	b) Test min and max and set minWeek and maxWeek to the index as necessary.  Review Lab5 Grades for min/max strategy.
+	c) Print out Week X data.  HINT-Each element in the weeklyNumber is the weekly sales.  If you divide weekly sales by 7, you will get (drum roll), average daily sales.
+2) After the for loop, print out:
+	a) Total Sales - format nicely for currency
+	b) Weekly Sales - format nicely for currency HINT- WEEKS_IN_MONTH will be helpful
+	c) Print out min week and max week.  HINT-Indices are based on 0 and weeks start with 1.
+
